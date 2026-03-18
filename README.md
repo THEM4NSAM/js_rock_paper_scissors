@@ -1,4 +1,3 @@
 # js_rock_paper_scissors
 
-JavaScript Rock Paper Scissors
-First JS Project
+The Odin Project JavaScript Rock Paper Scissors Project.
