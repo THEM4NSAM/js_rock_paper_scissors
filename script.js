@@ -17,7 +17,7 @@ function getComputerChoice() {
 
 
 function getHumanChoice() {
-    let humanSelection = prompt ("Please Enter Rock, Paper or Scissors");
+    let humanSelection = prompt ("Please Enter 'Rock', 'Paper' or 'Scissors'");
 
     return humanSelection
 }
@@ -27,12 +27,30 @@ let computerScore = 0
 
 
 function playRound(humanChoice, computerChoice) {
+
     humanChoice = humanChoice.toLowerCase();
 
+    if (humanChoice === computerChoice) {
+        console.log("It's a Draw!")
+
+    } else if ((humanChoice === "rock" && computerChoice === "scissors") 
+        || (humanChoice === "paper" && computerChoice === "rock")
+        || (humanChoice === "scissors" && computerChoice === "paper")) {
+        console.log("Human Wins!")
+        humanScore++; 
+
+    } else {
+        console.log("Computer Wins!")
+        computerScore++
+    }
+    return
 }
 
+const humanChoice = getHumanChoice();
+const computerChoice = getComputerChoice();
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+playRound (humanChoice, computerChoice);
 
-playRound (humanSelection, computerSelection);
+console.log(`Score:
+    Human: ${humanScore} 
+    Computer: ${computerScore}`)
