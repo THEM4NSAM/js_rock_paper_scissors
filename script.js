@@ -28,8 +28,6 @@ function playGame () {
     let humanScore = 0
     let computerScore = 0
 
-    let roundsPlayed = 0
-
     function playRound(humanChoice, computerChoice) {
 
         humanChoice = humanChoice.toLowerCase();
@@ -54,7 +52,6 @@ function playGame () {
 
 
     for (let i = 0; i < 5; i++) {
-        roundsPlayed++
         let humanChoice = getHumanChoice();
         let computerChoice = getComputerChoice();
 
