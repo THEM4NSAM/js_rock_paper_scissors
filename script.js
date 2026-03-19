@@ -22,35 +22,59 @@ function getHumanChoice() {
     return humanSelection
 }
 
-let humanScore = 0
-let computerScore = 0
 
+function playGame () {
 
-function playRound(humanChoice, computerChoice) {
+    let humanScore = 0
+    let computerScore = 0
 
-    humanChoice = humanChoice.toLowerCase();
+    let roundsPlayed = 0
 
-    if (humanChoice === computerChoice) {
-        console.log("It's a Draw!")
+    function playRound(humanChoice, computerChoice) {
 
-    } else if ((humanChoice === "rock" && computerChoice === "scissors") 
-        || (humanChoice === "paper" && computerChoice === "rock")
-        || (humanChoice === "scissors" && computerChoice === "paper")) {
-        console.log("Human Wins!")
-        humanScore++; 
+        humanChoice = humanChoice.toLowerCase();
 
-    } else {
-        console.log("Computer Wins!")
-        computerScore++
+        if (humanChoice === computerChoice) {
+            console.log("It's a Draw!")
+
+        } else if ((humanChoice === "rock" && computerChoice === "scissors") 
+            || (humanChoice === "paper" && computerChoice === "rock")
+            || (humanChoice === "scissors" && computerChoice === "paper")) {
+            console.log("Human Wins!")
+            humanScore++; 
+
+        } else {
+            console.log("Computer Wins!")
+            computerScore++
+        }
+        return
+
+        
     }
+
+
+    for (let i = 0; i < 5; i++) {
+        roundsPlayed++
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
+
+        playRound (humanChoice, computerChoice);
+
+    }
+
+    if (humanScore === computerScore) {
+        console.log("Close but its a Draw!")
+    } else if (humanScore < computerScore) {
+        console.log("Computer Wins This Time!")
+    } else {
+        console.log("Human Wins This Time!")
+    }
+
+        console.log(`Score:
+            Human: ${humanScore} 
+            Computer: ${computerScore}`)
+
     return
 }
 
-const humanChoice = getHumanChoice();
-const computerChoice = getComputerChoice();
-
-playRound (humanChoice, computerChoice);
-
-console.log(`Score:
-    Human: ${humanScore} 
-    Computer: ${computerScore}`)
+playGame();
